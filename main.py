@@ -19,7 +19,7 @@ ffi.cdef(
 if platform.system() == "Windows":
     lib = ffi.dlopen("nc_to_frame.dll")
 else:
-    lib = ffi.dlopen("nc_to_frame.so")
+    lib = ffi.dlopen("./nc_to_frame.so")
 
 def get_bounding_box(file_path: str):
     min_x = ffi.new("double *")
