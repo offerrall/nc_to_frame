@@ -1,0 +1,1 @@
+gcc -shared -fPIC -o nc_to_frame.dll nc_to_frame.c
