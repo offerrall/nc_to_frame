@@ -1,9 +1,9 @@
 import re
-from cffi import FFI
 import platform
 
-
 try:
+    from cffi import FFI
+
     ffi = FFI()
 
     ffi.cdef(
@@ -33,9 +33,14 @@ try:
 
 except Exception as e:
     print(f"Error loading C library: {e}, falling back to Python implementation.")
+    print("Ensure you have compiled the C extension correctly and it is in the environment path.")
+    print("Ensure you have the required CFFI library installed.")
     get_bounding_box = lambda file_path: python_get_bounding_box(file_path)
 
 def python_get_bounding_box(file_path: str) -> tuple[float, float, float, float]:
+    """
+    Extracts the bounding box coordinates from a given NC file.
+    """
     min_x: float = float('inf')
     max_x: float = float('-inf')
     min_y: float = float('inf')
@@ -64,6 +69,9 @@ def generate_framing_gcode(left: float,
                            top: float,
                            power: float = 10,
                            feed: int = 1000) -> list[str]:
+    """
+    Generates G-code for framing a bounding box defined by the coordinates.
+    """
     
     gcode: list[str] = [f"G0 X{left} Y{bottom}",
                         f"M3 S{power:.3f} F{feed}",
