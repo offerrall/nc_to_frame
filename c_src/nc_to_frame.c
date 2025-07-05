@@ -4,7 +4,12 @@
 #include <float.h>
 #include <ctype.h>
 
-void update_bbox_from_line(const char* line, double* min_x, double* max_x, double* min_y, double* max_y) {
+void update_bbox_from_line(const char* line,
+                           double* min_x,
+                           double* max_x,
+                           double* min_y,
+                           double* max_y) {
+
     const char* p = line;
     while (*p) {
         if (*p == 'X' || *p == 'Y') {
@@ -29,7 +34,12 @@ void update_bbox_from_line(const char* line, double* min_x, double* max_x, doubl
     }
 }
 
-void get_bounding_box(const char* file_path, double* min_x, double* max_x, double* min_y, double* max_y) {
+void get_bounding_box(const char* file_path,
+                      double* min_x,
+                      double* max_x,
+                      double* min_y,
+                      double* max_y) {
+
     *min_x = DBL_MAX;
     *max_x = -DBL_MAX;
     *min_y = DBL_MAX;
