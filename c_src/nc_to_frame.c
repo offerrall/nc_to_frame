@@ -11,7 +11,7 @@ void update_bbox_from_line(const char* line, double* min_x, double* max_x, doubl
             char axis = *p++;
             char buf[64];
             int i = 0;
-            while (*p && (isdigit(*p) || *p == '.' || *p == '-' || *p == '+') && i < 31) {
+            while (*p && (isdigit(*p) || *p == '.' || *p == '-' || *p == '+') && i < 63) {
                 buf[i++] = *p++;
             }
             buf[i] = '\0';
