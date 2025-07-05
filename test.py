@@ -2,7 +2,7 @@ from nc_to_frame import get_bounding_box, python_get_bounding_box, generate_fram
 
 from time import time
 
-nc_file: str = "./test/giant.nc"
+nc_file: str = "./giant.nc"
 
 
 def process_input_file(input_path: str,
